@@ -49,38 +49,47 @@ const Header = () => {
         className={`ud-header left-0 top-0 z-40 flex w-full items-center ${
           sticky
             ? "shadow-nav fixed z-[999] border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10"
-            : "absolute bg-transparent"
+            : "absolute "
         }`}
       >
-        <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4">
-              <Link
-                href="/"
-                className={`navbar-logo block w-full ${
-                  sticky ? "py-2" : "py-5"
-                } `}
-              >
-                {pathUrl !== "/" ? (
-                  <>
-                    <p>DIGITAL SOLUTIONS</p>
-                  </>
-                ) : (
-                  <>
-                    <p className="w-full bg-red-300 text-xl text-white">
-                      DIGITAL SOLUTIONS
-                    </p>
-                  </>
-                )}
-              </Link>
-            </div>
-            <div className="flex w-full items-center justify-between px-4">
+        <div className="w-full px-10">
+          <div className="relative flex items-center  ">
+            <div className="flex  w-full items-center justify-between  ">
+              {/* LOGO */}
               <div>
+                <Link
+                  href="/"
+                  className={` w-full ${sticky ? "py-2" : "py-5"} `}
+                >
+                  {pathUrl !== "/" ? (
+                    <>
+                      <Image
+                        src="/logo/logo-design_v2_no-bg.svg"
+                        alt="logo"
+                        width={1500}
+                        height={1500}
+                        className="h-24 w-[15rem]"
+                      />
+                    </>
+                  ) : (
+                    <Image
+                      src="/logo/logo-design_v2_no-bg.svg"
+                      alt="logo"
+                      width={1500}
+                      height={1500}
+                      className="h-24 w-[15rem]"
+                    />
+                  )}
+                </Link>
+              </div>
+
+              {/* LINKS */}
+              <nav className="flex  justify-center ">
                 <button
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                  className="absolute  top-1/2 block -translate-y-1/2 rounded-lg  bg-green-200 py-[6px] ring-primary focus:ring-2 lg:hidden"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
@@ -118,7 +127,7 @@ const Header = () => {
                       : "invisible top-[120%] opacity-0"
                   }`}
                 >
-                  <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
+                  <ul className="xw flex lg:gap-x-8 xl:gap-x-12">
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
                         <li key={index} className="group relative">
@@ -229,9 +238,10 @@ const Header = () => {
                     )}
                   </ul>
                 </nav>
-              </div>
-              <div className="hidden items-center justify-end pr-16 sm:flex lg:pr-0">
-                {/* theme toggler */}
+              </nav>
+
+              {/* <div className="hidden items-center justify-end pr-16 sm:flex lg:pr-0">
+           
                 <button
                   aria-label="theme toggler"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -324,6 +334,15 @@ const Header = () => {
                     )}
                   </>
                 )}
+              </div>  */}
+
+              <div className="mr-5">
+                <button
+                  type="button"
+                  className="rounded-md bg-white px-4  py-2 text-black"
+                >
+                  Contact
+                </button>
               </div>
             </div>
           </div>
